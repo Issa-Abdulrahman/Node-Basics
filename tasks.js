@@ -82,7 +82,7 @@ function quit(){
 }
 
 /**
- * Exits the application
+ * list all possible commamnds  
  *
  * @returns {void}
  */
