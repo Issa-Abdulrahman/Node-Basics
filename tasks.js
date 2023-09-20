@@ -50,6 +50,9 @@ function onDataReceived(text) {
     
     help();
   }
+  else if(text === 'list\n'){
+    list();
+  }
 
   else{
     unknownCommand(text);
@@ -117,6 +120,18 @@ function help(){
   "\nexit: return (Quitting now, goodbye!)"+
   "\nquit: return (Quitting now, goodbye!)"+
   "\nhelp: list all the command")
+}
+
+/**
+ * list all possible commamnds  
+ *
+ * @returns {void}
+ */
+let commands=['do a list','add','remove']// I declared an array with some commands
+function list(){
+  commands.forEach((commamnds, index) => {//here selecting each index in the command 
+    console.log(`${index + 1}. ${commamnds}`);// here we are displaying the index number with the related content
+  });
 }
 
 
