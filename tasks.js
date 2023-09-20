@@ -110,11 +110,13 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log(`possible commands :
-  hello
-  exit 
-  quit 
-  help`)
+
+  console.log("\npossible commands:"+
+  "\nhello: return (hello!)"+
+  "\nnewhello: return (hello + name!)"+
+  "\nexit: return (Quitting now, goodbye!)"+
+  "\nquit: return (Quitting now, goodbye!)"+
+  "\nhelp: list all the command")
 }
 
 
