@@ -40,7 +40,7 @@ function onDataReceived(text) {
   else if(text === 'hello\n'){
     hello();
   }
-  else if(text.slice(0,5)==='hello'){// I used slice here to extrat hello (from 0 till 5 )
+  else if(text.slice(0,5)==='hello'){// I used slice here to extract hello (from 0 till 5 )
                                     //I mean the indexes, so if it start with hello do this function
     newhello(text.slice(5));//here I applied the function so hello is fixed 
                             //only apply this function on the second slice(part of the given)
