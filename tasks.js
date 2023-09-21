@@ -61,7 +61,12 @@ function onDataReceived(text) {
   else if(text==='remove\n'){
     remove();
   }
-
+ else if(text==='remove1\n'){
+    remove1();
+  }
+  else if(text==='remove2\n'){
+    remove1();
+  }
   else{
     unknownCommand(text);
   }
@@ -168,7 +173,24 @@ function remove(){
   commands.pop();//since commands is as an array so pop here will remove the last elment added
   console.log(commands);
 }
-
+/**
+ * list for some commands
+ *
+ * @returns {void}
+ */
+function remove1(){
+  commands.splice(1,1);
+  console.log(commands);
+}
+/**
+ * list for some commands
+ *
+ * @returns {void}
+ */
+function remove2(){
+  commands.splice(1,3);
+  console.log(commands);
+}
 
 // The following line starts the application
 startApp("Issa Abdulrahman")
