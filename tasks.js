@@ -153,7 +153,10 @@ function help(){
   "\nremove: remove the last element added"+
   "\nremove1: remove the first element"+
   "\nremove2: remove the second elment"+
-  "\nnewremove: return an message says that you enter a number not exist")
+  "\nnewremove: return an message says that you enter a number not exist"
+  +"\nlisttasks:it list all task with the satus of each one"+
+  "\nmarktaskdone: mark task done by the index"+
+  "\nmarktaskundone: mark task undone by the index")
 }
 
 /**
