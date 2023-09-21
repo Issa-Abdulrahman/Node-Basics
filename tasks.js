@@ -260,24 +260,26 @@ function editcommands(commands, oldcommand, newcommand) {//here i am taking the 
 
   return updatedcommand;
 }
-
+// Array of tasks, each represented as an object with a description and done status which is boolean(true or flase)
 let tasks = [
   { description: "Get milk", done: false },
   { description: "Read a book", done: true },
   { description: "Write code", done: false }
 ];
+// here the function is to list all tasks, indicating their status and I am using check marks to add it next to the task is done 
 function listTasks() {
   tasks.forEach((task, index) => {
       const status = task.done ? "[✓]" : "[ ]";
       console.log(`${status} Task ${index + 1}: ${task.description}`);
   });
 }
+// the function here is to mark a task as done by its index
 function markTaskDone(index) {
   if (index >= 0 && index < tasks.length) {
       tasks[index].done = true;
   }
 }
-
+//the function here is to mark a task as undone by its index
 function markTaskUndone(index) {
   if (index >= 0 && index < tasks.length) {
       tasks[index].done = false;
