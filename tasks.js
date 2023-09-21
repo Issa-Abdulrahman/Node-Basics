@@ -132,7 +132,11 @@ function help(){
   "\nnewhello: return (hello + name!)"+
   "\nexit: return (Quitting now, goodbye!)"+
   "\nquit: return (Quitting now, goodbye!)"+
-  "\nhelp: list all the command")
+  "\nhelp: list all the command"+
+  "\nadd: will add the element entered"+
+  "\nremove: remove the last element added"+
+  "\nremove1: remove the first element"+
+  "\nremove2: remove the second elment")
 }
 
 /**
@@ -191,6 +195,7 @@ function remove2(){
   commands.splice(1,3);
   console.log(commands);
 }
+
 
 // The following line starts the application
 startApp("Issa Abdulrahman")
