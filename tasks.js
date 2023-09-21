@@ -79,6 +79,10 @@ function onDataReceived(text) {
     editelements(text);
 
   }
+  else if(text.trim().split(" ")[0]==="check"){
+    listTasks(text);
+
+  }
   else{
     unknownCommand(text);
   }
@@ -232,7 +236,7 @@ function newremove(text){
   console.log('Element Not Found');
 }
 /**
- * it notify me that i entered a wrong function number 
+ * return the array with the new elements
  *
  * @returns {void}
  */
@@ -255,6 +259,29 @@ function editcommands(commands, oldcommand, newcommand) {//here i am taking the 
   console.log("Updated tasks:", updatedcommand);
 
   return updatedcommand;
+}
+
+let tasks = [
+  { description: "Get milk", done: false },
+  { description: "Read a book", done: true },
+  { description: "Write code", done: false }
+];
+function listTasks() {
+  tasks.forEach((task, index) => {
+      const status = task.done ? "[✓]" : "[ ]";
+      console.log(`${status} Task ${index + 1}: ${task.description}`);
+  });
+}
+function markTaskDone(index) {
+  if (index >= 0 && index < tasks.length) {
+      tasks[index].done = true;
+  }
+}
+
+function markTaskUndone(index) {
+  if (index >= 0 && index < tasks.length) {
+      tasks[index].done = false;
+  }
 }
 
 
