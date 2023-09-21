@@ -61,11 +61,19 @@ function onDataReceived(text) {
   else if(text==='remove\n'){
     remove();
   }
- else if(text==='remove1\n'){
+ else if(text==='remove 1\n'){
     remove1();
   }
-  else if(text==='remove2\n'){
-    remove1();
+  else if(text==='remove 2\n'){
+    remove2();
+  }
+  //here after triming the spaces ant the beginning and the end i splited the string into and array 
+  //and i am checking if the first index is equal to remove
+  else if(text.trim().split(" ")[0] == 'remove'){
+    //if it is equal (condition true) the newremove function will run with the second element of the array 
+    //as you see here [1] which means the second element
+    newremove(text.trim().split(" ")[1]);
+
   }
   else{
     unknownCommand(text);
@@ -136,7 +144,8 @@ function help(){
   "\nadd: will add the element entered"+
   "\nremove: remove the last element added"+
   "\nremove1: remove the first element"+
-  "\nremove2: remove the second elment")
+  "\nremove2: remove the second elment"+
+  "\nnewremove: return an message says that you enter a number not exist")
 }
 
 /**
@@ -178,7 +187,7 @@ function remove(){
   console.log(commands);
 }
 /**
- * list for some commands
+ * remove the 1st element
  *
  * @returns {void}
  */
@@ -187,13 +196,36 @@ function remove1(){
   console.log(commands);
 }
 /**
- * list for some commands
+ * remove the 2nd element
  *
  * @returns {void}
  */
 function remove2(){
-  commands.splice(1,3);
+  commands.splice(1,2);
   console.log(commands);
+}
+/**
+ * it notify me that i entered a wrong function number 
+ *
+ * @returns {void}
+ */
+// function newremove(text){
+//   let nremove=text.slice(5)
+//   if(nremove!==""||nremove!==1||nremove==2){
+//     console.log("you enter a number that does not exist")
+//   }
+ 
+// }
+function newremove(text){
+  //here we are cheching each element in the text element 
+  for(let i=0; i<commands.length; i++){
+    if(text == commands[i]){ //here if text equal to the index mentioned [i] 
+      commands.splice(i, 1);//then here delete ore remove the mentioned index element using splice method 
+      console.log(commands);
+      return; // Exit the function after removing the element
+    }
+  }
+  console.log('Element Not Found');
 }
 
 
