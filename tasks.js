@@ -53,6 +53,11 @@ function onDataReceived(text) {
   else if(text === 'list\n'){
     list();
   }
+//here we are removing the spaces then spliting them in order to work on the second section which is the new command.
+//and keeping the first section with index 0 as it is ( i mean the add)
+  else if(text.trim().split(" ")[0] === 'add'){
+    add(text);
+  }
 
   else{
     unknownCommand(text);
@@ -123,15 +128,33 @@ function help(){
 }
 
 /**
- * list all possible commamnds  
+ * list for some commands
  *
  * @returns {void}
  */
 let commands=['do a list','add','remove']// I declared an array with some commands
 function list(){
   commands.forEach((commamnds, index) => {//here selecting each index in the command 
-    console.log(`${index + 1}. ${commamnds}`);// here we are displaying the index number with the related content
+    console.log(`${index + 1}. ${commamnds}`);// here we are displaying the index number with the related content i put +1 just to start ordering the task from 1 instead of 0 since indexes start by 0
   });
+}
+/**
+ * Add new commands  
+ *
+ * @returns {void}
+ */
+function add(text){
+  let t=text.slice(4);//here i am taking what we have after the word
+  if(t===""){
+//here i am checking if after the add there is nothing i return a msg notifying the user:
+// that we can't have an empty command
+    console.log(`the command can not be empty.`)
+  }
+  else{
+//else we are removing the spaces from t(the section after add) then we are pushing it to the array of commands
+  commands.push(t.trim());
+  console.log(`the updated list is: ${commands}`)
+  }
 }
 
 
