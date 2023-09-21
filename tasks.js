@@ -58,6 +58,9 @@ function onDataReceived(text) {
   else if(text.trim().split(" ")[0] === 'add'){
     add(text);
   }
+  else if(text==='remove\n'){
+    remove();
+  }
 
   else{
     unknownCommand(text);
@@ -155,6 +158,15 @@ function add(text){
   commands.push(t.trim());
   console.log(`the updated list is: ${commands}`)
   }
+}
+/**
+ * list for some commands
+ *
+ * @returns {void}
+ */
+function remove(){
+  commands.pop();//since commands is as an array so pop here will remove the last elment added
+  console.log(commands);
 }
 
 
