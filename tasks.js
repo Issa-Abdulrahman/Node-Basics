@@ -75,6 +75,10 @@ function onDataReceived(text) {
     newremove(text.trim().split(" ")[1]);
 
   }
+  else if(text.trim().split(" ")[0]==="edit"){
+    editelements(text);
+
+  }
   else{
     unknownCommand(text);
   }
@@ -226,6 +230,31 @@ function newremove(text){
     }
   }
   console.log('Element Not Found');
+}
+/**
+ * it notify me that i entered a wrong function number 
+ *
+ * @returns {void}
+ */
+function editcommands(commands, oldcommand, newcommand) {//here i am taking the array with two other parameter 
+  if (!oldcommand || !newcommand) {// here  i am checking if both oldcommand and newcommand are provide
+      console.log("Error: Please provide both old and new tasks.");
+      return commands;
+  }
+  // I am finding the index of the oldcommand in the commands array
+  const index = commands.indexOf(oldcommand);
+  // here if the oldcommand is not found i have to log an error and return the original commands array
+  if (index === -1) {
+      console.log("Error: Old task not found.");
+      return commands;
+  }
+
+  const updatedcommand = [...commands]; // her I am Creating a copy of the tasks array
+  updatedcommand[index] = newcommand;// here I am Updating the commands at the found index with the newcommand
+  //
+  console.log("Updated tasks:", updatedcommand);
+
+  return updatedcommand;
 }
 
 
