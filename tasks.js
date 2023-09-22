@@ -131,7 +131,34 @@ function newhello(name){
  *
  * @returns {void}
  */
-function quit(){
+async function quit(){
+
+
+  const fs = require('fs').promises;
+
+
+  
+  let jsonData = JSON.stringify(commands);
+  
+  await fs.writeFile('database.json', jsonData, (err) => {
+    if (err) {
+      console.error('Error writing file:', err);
+      return;
+    } else{
+    console.log('User data saved to disk!');
+    }
+  })
+
+
+
+
+
+
+
+
+
+
+
   console.log('Quitting now, goodbye!')
   process.exit();
 }
@@ -288,6 +315,7 @@ function markTaskUndone(index) {
       tasks[index].done = false;
   }
 }
+
 
 
 // The following line starts the application
